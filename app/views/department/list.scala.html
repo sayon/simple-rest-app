@@ -1,0 +1,19 @@
+@(departments: Seq[Department])
+
+@main("Departments") {
+<table style="width:100%">
+    @departments.map {
+    case department => {
+    <tr>
+        <td>@department.id</td>
+        <td>@department.code</td>
+        <td>@department.name</td>
+        <td> <img src="@department.imageSrc" width="30" height="30"/> </td>
+        <td>
+            <a href="@routes.DepartmentController.update(department.id.get)" class="btn">Edit</a>
+        </td>
+    </tr>
+    }
+    }
+</table>
+}

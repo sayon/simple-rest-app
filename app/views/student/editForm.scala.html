@@ -1,0 +1,27 @@
+@(id: Long, studentForm: Form[Student], departments: Seq[(String, String)])
+
+@import helper._
+
+@main("Edit student") {
+
+@form(routes.StudentController.update(id)) {
+
+<fieldset>
+    @inputText(studentForm("name"), '_label -> "Student name")
+    @select(
+        studentForm("department"),
+        departments,
+        '_label -> "Department", '_default -> "-- Choose a department --",
+        '_showConstraints -> false
+    )
+
+</fieldset>
+
+<div class="actions">
+    <input type="submit" value="Edit">
+    <a href="@routes.StudentController.remove(id)" class="btn danger">Delete</a>
+</div>
+
+}
+
+}

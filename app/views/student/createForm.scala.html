@@ -1,0 +1,27 @@
+@(studentForm: Form[Student], departments: Seq[(String, String)])
+
+@import helper._
+
+@main("Add a student") {
+
+@form(routes.StudentController.create()) {
+
+<fieldset>
+
+    @inputText(studentForm("name"), '_label -> "Student name")
+
+    @select(studentForm("department"),
+        departments,
+        '_label -> "Department", '_default -> "-- Choose a department --",
+        '_showConstraints -> false
+    )
+
+</fieldset>
+
+<div class="actions">
+    <input type="submit" value="Create" class="btn primary">
+</div>
+
+}
+
+}

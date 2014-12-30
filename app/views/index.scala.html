@@ -1,0 +1,30 @@
+@(student_department_items: Seq[(Student, Department)], departments: Seq[Department])
+
+@main("Home") {
+
+    <h4>Students</h4>
+    <table style="width : 100 %">
+    @student_department_items.map {
+        case (student, department) => {
+            <tr>
+                <td>@student.name</td>
+                <td>@department.code</td>
+            </tr>
+        }
+    }
+    </table>
+
+    <h4>Departments</h4>
+    <table>
+    @departments.map {
+        case department => {
+            <tr><td witdh="20%"> <img src="@department.imageSrc" width = "100px" height="100px"/> </td>
+                <td>@department.code</td></tr>
+        }
+    }
+    </table>
+
+    <div style="clear : both"></div>
+
+}
+

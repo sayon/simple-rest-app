@@ -1,0 +1,61 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                                                                controllers.Application.index
+
+# Students
+
+#xml, json, html
+GET         /students                                                        controllers.StudentController.list
+
+#-
+GET         /students/create/:name/:dep                                      controllers.StudentController.createStudent(name:String,dep:Long)
+
+#form
+GET         /students/edit/:id                                               controllers.StudentController.editDialog(id: Long)
+
+#xml json html
+POST        /students/edit/:id                                               controllers.StudentController.update(id: Long)
+
+#-
+GET         /students/remove/:id                                             controllers.StudentController.remove(id: Long)
+
+#html json xml
+GET         /students/show/:id                                               controllers.StudentController.show(id:Long)
+
+#form
+GET         /students/create                                                 controllers.StudentController.createDialog
+
+#xml json http
+POST        /students/create                                                 controllers.StudentController.create
+
+
+# Departments
+#xml, json, html - ok
+GET         /departments                                                     controllers.DepartmentController.list
+
+#- ok
+GET         /departments/create/name/:name/id/:id/code/:code/img/:img        controllers.DepartmentController.create(id:Long, name:String, img:String, code:String)
+
+#form - ok
+GET         /departments/edit/:id                                            controllers.DepartmentController.editDialog(id: Long)
+
+#xml json html - ok
+POST        /departments/edit/:id                                            controllers.DepartmentController.update(id: Long)
+
+#-
+GET         /departments/remove/:id                                          controllers.DepartmentController.remove(id: Long)
+
+#form
+GET         /departments/create                                              controllers.DepartmentController.createDialog
+
+#xml json http
+POST        /departments/create                                              controllers.DepartmentController.createFromRequest
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                                                    controllers.Assets.at(path="/public", file)
+
+

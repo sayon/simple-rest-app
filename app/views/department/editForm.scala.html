@@ -1,0 +1,24 @@
+@(id: Long, departmentForm: Form[Department])
+
+@import helper._
+
+@main("Edit department") {
+
+@form(routes.DepartmentController.update(id)) {
+
+<fieldset>
+
+    @inputText(departmentForm("name"), '_label -> "Department name")
+    @inputText(departmentForm("imageSrc"), '_label -> "Image url")
+    @inputText(departmentForm("code"), '_label -> "Code")
+
+</fieldset>
+
+<div class="actions">
+    <input type="submit" value="Edit">
+    <a href="@routes.DepartmentController.remove(id)" class="btn danger">Delete</a>
+</div>
+
+}
+
+}

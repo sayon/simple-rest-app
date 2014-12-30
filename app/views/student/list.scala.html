@@ -1,0 +1,22 @@
+@(students: Seq[Student])
+
+@main("Home") {
+    <h4>Students</h4>
+    <table style="width: 100%; ">
+        <tr><td>id</td><td>name</td><td>department</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+
+        @students.map {
+            case student => {
+                <tr>
+                    <td>@student.id</td>
+                    <td>@student.name</td>
+                    <td>@student.department<td>
+                    <td><a href="@routes.StudentController.show(student.id.get)">show</a></td>
+                    <td><a href="@routes.StudentController.editDialog(student.id.get)">edit</a> </td>
+                    <td><a href="@routes.StudentController.remove(student.id.get)">remove</a> </td>
+
+                </tr>
+            }
+        }
+    </table>
+}

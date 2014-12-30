@@ -1,0 +1,36 @@
+@(title: String)(content: Html)
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" href='@routes.Assets.at("css/bootstrap.min.css")'>
+        <link rel="stylesheet" href='@routes.Assets.at("css/bootstrap-theme.min.css")'>
+    </head>
+    <body>
+        <div style="margin:auto; width:500px;">
+            <a href="/"> <h1 style="text-align:center">AptuStudents</h1>  </a>
+            <hr/>
+            <ul class="nav nav-pills">
+                <li>
+                    <a href="@routes.StudentController.list">Students</a>
+                </li>
+                <li>
+                    <a href="@routes.StudentController.createDialog">Add Student</a>
+                </li>
+                <li>
+                    <a href="@routes.DepartmentController.list">Departments</a>
+                </li>
+                <li>
+                    <a href="@routes.DepartmentController.createDialog">Add department</a>
+                </li>
+            </ul>
+            <br/>
+            <div class="panel panel-default">
+                <div class="panel-heading">@title</div>
+                <div class="panel-body">
+                    @content
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
